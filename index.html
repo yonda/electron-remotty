@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>remotty</title>
+  </head>
+  <body ng-app="app" ng-controller="RootCtrl as root">
+    <script>console.log("Hello World");</script>
+    <webview id="mainWebview" src="https://www.remotty.net//" autosize="on"></webview>
+    <style>
+       webview {
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+       }
+     </style>
+  </body>
+</html>
