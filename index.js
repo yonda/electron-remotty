@@ -3,6 +3,8 @@
 var app = require('app');
 var BrowserWindow = require('browser-window');
 
+require('menu');
+
 require('crash-reporter').start();
 
 var mainWindow = null;
