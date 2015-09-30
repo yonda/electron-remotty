@@ -39,8 +39,22 @@ function setApplicationMenu (){
       ]
     },
     {
+      label: "View",
+      submenu: [
+        {
+          label: 'Reload',
+          accelerator: 'CmdOrCtrl+R',
+          click: function(item, focusedWindow) {
+            if (focusedWindow)
+              focusedWindow.reload();
+          }
+        },
+      ]
+    },
+    {
       label: "Edit",
       submenu: [
+        { type: "separator" },
         { label: "Undo", accelerator: "Command+Z", selector: "undo:" },
         { label: "Redo", accelerator: "Shift+Command+Z", selector: "redo:" },
         { type: "separator" },
