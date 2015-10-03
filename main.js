@@ -1,24 +1,30 @@
 'use strict';
 
+// アプリケーションをコントロールするモジュール
 var app = require('app');
+// ウィンドウを作成するモジュール
 var BrowserWindow = require('browser-window');
 
+// クラッシュレポート
 require('crash-reporter').start();
 
+// メインウィンドウはGCされないようにグローバル宣言
 var mainWindow = null;
 
+// 全てのウィンドウが閉じたら終了
 app.on('window-all-closed', function () {
   if (process.platform != 'darwin') {
     app.quit();
   }
 });
 
+// Electron の初期化完了後に実行
 app.on('ready', function () {
   // ブラウザ(Chromium)の起動, 初期画面のロード
   mainWindow = new BrowserWindow({width: 1280, height: 800});
-
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
+  // Application Menu を設定する
   setApplicationMenu();
 
   mainWindow.on('closed', function () {
@@ -65,5 +71,6 @@ function setApplicationMenu (){
       ]
     }
   ]);
+
   Menu.setApplicationMenu(menu);
 }
