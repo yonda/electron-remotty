@@ -6,17 +6,7 @@
     <link rel='stylesheet' href='./index.css'>
   </head>
   <body ng-app="app" ng-controller="RootCtrl as root">
-    <!-- この script は Chromium optimization のバグで webView が表示されないので追加している -->
-    <script>console.log("Hello World");</script>
     <webview id="mainWebview" src="https://www.remotty.net//" autosize="on"></webview>
+    <script src='./index.js'></script>
   </body>
-  <script>
-    onload = function() {
-      var webview = document.getElementById("mainWebview");
-
-      webview.addEventListener('new-window', function(e) {
-        require('shell').openExternal(e.url);
-      });
-    }
-  </script>
 </html>
