@@ -10,4 +10,13 @@
     <script>console.log("Hello World");</script>
     <webview id="mainWebview" src="https://www.remotty.net//" autosize="on"></webview>
   </body>
+  <script>
+    onload = function() {
+      var webview = document.getElementById("mainWebview");
+
+      webview.addEventListener('new-window', function(e) {
+        require('shell').openExternal(e.url);
+      });
+    }
+  </script>
 </html>
